@@ -17,6 +17,9 @@ public class Application {
         return application.sources(Application.class);
     }
 
+<<<<<<< HEAD
 
 >>>>>>> e345323... new commit 2 edit
+=======
+>>>>>>> 9c52f29... new commit
 }

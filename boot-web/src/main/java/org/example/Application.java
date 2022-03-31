@@ -9,4 +9,14 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
+
+
+>>>>>>> e345323... new commit 2 edit
 }

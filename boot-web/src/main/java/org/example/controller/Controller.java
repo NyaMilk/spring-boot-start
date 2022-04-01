@@ -1,21 +1,20 @@
 package org.example.controller;
 
 import org.example.model.DateResponse;
-import org.example.services.DateService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
+import org.example.service.DateService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class Controller {
-    @Autowired
-    private DateService dateService;
+    private final DateService dateService;
+
+    public Controller(DateService dateService) {
+        this.dateService = dateService;
+    }
 
     @GetMapping("/dates")
     public ResponseEntity<?> getDates() {
@@ -26,5 +25,11 @@ public class Controller {
 //        }
 
         return ResponseEntity.badRequest().body("Empty response");
+    }
+
+    @GetMapping("/allData")
+    public void getAllData() {
+        String st = dateService.getAllData();
+        System.out.println(st);
     }
 }

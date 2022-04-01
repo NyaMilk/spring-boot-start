@@ -2,24 +2,19 @@ package org.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class Application {
+public class Application  {
+//public class Application extends SpringBootServletInitializer {
 
-    public static void main(String[] args) {
+//    @Override
+//    public SpringApplicationBuilder configure(SpringApplicationBuilder builder){
+//        return builder.sources(Application.class);
+//    }
+
+    public static void main(String[] args)throws Exception{
         SpringApplication.run(Application.class, args);
     }
-<<<<<<< HEAD
-=======
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
-    }
-
-<<<<<<< HEAD
-
->>>>>>> e345323... new commit 2 edit
-=======
->>>>>>> 9c52f29... new commit
 }

@@ -1,11 +1,12 @@
 package org.example.service;
 
 import org.example.model.DateResponse;
+import org.json.JSONObject;
 
 import java.util.List;
 
 public interface DateService {
     List<DateResponse> getAllDates();
 
-    String getAllData();
+    List<JSONObject> getAllData(String tableName);
 }

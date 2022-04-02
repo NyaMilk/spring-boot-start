@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.model.DateResponse;
 import org.example.repository.DateRepository;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,8 +21,7 @@ public class DateServiceImpl implements DateService {
     }
 
     @Override
-    public String getAllData() {
-        dateRepository.findData();
-        return "ok";
+    public List<JSONObject> getAllData(String tableName) {
+        return dateRepository.findData(tableName);
     }
 }

@@ -36,12 +36,13 @@ public class RowMap implements RowMapper<JSONObject> {
                     System.out.println("5 :: Byte");
                 } else if (Class.forName(meta.getColumnClassName(i)) == byte[].class) {
                     System.out.println("5 :: byte[]");
+                } else if(result instanceof Blob) {
+                    System.out.println("5 :: instanceof Blob");
                 }
-                System.out.println("5 :: " + meta.getColumnTypeName(i));
+                System.out.println("6 typeName :: " + meta.getColumnTypeName(i));
 
                 Object value;
                 if (meta.getColumnTypeName(i).equals("BLOB")) {
-                    System.out.println("TUT");
 //                Object value = JdbcUtils.getResultSetValue(rs, i, Class.forName(meta.getColumnClassName(i)));
                     Blob blob = (Blob) JdbcUtils.getResultSetValue(rs, i, Blob.class);
                     value = Objects.requireNonNull(blob).getBytes(1, (int) blob.length());

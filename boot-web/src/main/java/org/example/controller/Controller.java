@@ -43,7 +43,8 @@ public class Controller {
 
     @GetMapping("/allDataJson")
     public ResponseEntity<?> getAllDataJson(@RequestParam String tableName) {
-        List<JSONObject> jsonObject = dateService.getAllData(tableName);
+        TableNames tableNameValue = TableNames.valueOf(tableName.toUpperCase(Locale.ROOT));
+        List<JSONObject> jsonObject = dateService.getAllData(tableNameValue.name());
 
 //        String encodedString = Base64.getEncoder().encodeToString(jsonObject.toString().getBytes(StandardCharsets.UTF_8));
 //        DatasResponse datasResponse = new DatasResponse(jsonObject.get(0).getLong("id"), new Date(), encodedString);

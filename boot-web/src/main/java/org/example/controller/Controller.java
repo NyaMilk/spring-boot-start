@@ -14,6 +14,10 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+import javax.servlet.http.HttpServletRequest;
+
+@Slf4j
 @RestController
 public class Controller {
     private final DateService dateService;
@@ -42,9 +46,10 @@ public class Controller {
     }
 
     @GetMapping("/allDataJson")
-    public ResponseEntity<?> getAllDataJson(@RequestParam String tableName) {
+    public ResponseEntity<?> getAllDataJson(@RequestParam String tableName, HttpServletRequest request) {
         TableNames tableNameValue = TableNames.valueOf(tableName.toUpperCase(Locale.ROOT));
         List<JSONObject> jsonObject = dateService.getAllData(tableNameValue.name());
+        log.info("Received getDatesByTable for table '{}' from {}", tableName, request.getRemoteHost());
 
 //        String encodedString = Base64.getEncoder().encodeToString(jsonObject.toString().getBytes(StandardCharsets.UTF_8));
 //        DatasResponse datasResponse = new DatasResponse(jsonObject.get(0).getLong("id"), new Date(), encodedString);
